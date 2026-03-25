@@ -1,0 +1,276 @@
+
+<style>
+  .tab-nav { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tab-btn { font-size: 12px; padding: 6px 14px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); cursor: pointer; transition: all .15s; }
+  .tab-btn.active { background: var(--color-text-primary); color: var(--color-background-primary); border-color: transparent; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .h-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; }
+  .h-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .h-num { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+  .h-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
+  .h-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 10px; }
+  .h-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .h-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; }
+  .tag-us { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+  .tag-kr { background: var(--color-background-info); color: var(--color-text-info); }
+  .tag-diff { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .label-small { font-size: 10px; color: var(--color-text-tertiary); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+  .conf-bar { height: 4px; border-radius: 2px; background: var(--color-background-secondary); margin-top: 8px; overflow: hidden; }
+  .conf-fill { height: 100%; border-radius: 2px; }
+  .conf-label { font-size: 11px; color: var(--color-text-tertiary); margin-top: 4px; }
+  .section-title { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+  .compare-box { background: var(--color-background-secondary); border-radius: 8px; padding: 10px 12px; }
+  .compare-label { font-size: 10px; font-weight: 500; margin-bottom: 4px; }
+  .compare-text { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+</style>
+
+<div style="padding: 1rem 0;">
+
+  <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:16px;line-height:1.7;">
+    미국 레퍼런스에서 확인된 패턴을 한국 시장 구조(GLP-1 보급 속도, 식문화, 유통 채널, 소비자 태도)와 교차해 도출한 가설입니다.
+  </div>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('market')">🏗 시장 구조</button>
+    <button class="tab-btn" onclick="switchTab('consumer')">🧠 소비자 행동</button>
+    <button class="tab-btn" onclick="switchTab('product')">📦 제품 기획</button>
+    <button class="tab-btn" onclick="switchTab('channel')">🛒 채널·유통</button>
+    <button class="tab-btn" onclick="switchTab('risk')">⚠️ 리스크</button>
+  </div>
+
+  <!-- 시장 구조 -->
+  <div class="tab-content active" id="tab-market">
+    <div class="section-title">시장 진입 타이밍 & 구조 가설</div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#E6F1FB;color:#185FA5;">1</div>
+        <div class="h-title">한국은 미국보다 2~3년 뒤처진 GLP-1 보급 곡선 위에 있다 → 지금이 선점 타이밍</div>
+      </div>
+      <div class="h-body">미국은 2021년 비만 치료 승인 후 4년 만에 전체 가구의 23%가 사용자 가구. 한국은 위고비(세마글루타이드)가 2024년 급여 논의 시작 단계. 약가·접근성 장벽이 아직 높지만, 가격 인하·급여 확대 시 채택 속도는 미국보다 빠를 수 있음(한국의 높은 의료 접근성 + SNS 확산 속도). 식품 브랜드 입장에서는 약물 보급 1~2년 전 포지션 구축이 황금기.</div>
+      <div class="h-row">
+        <span class="h-tag tag-us">미국: 보급 4년차에 식품 대응</span>
+        <span class="h-tag tag-kr">한국: 보급 초기 → 선점 가능</span>
+        <span class="h-tag tag-diff">차이: 약가/급여 구조가 변수</span>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:75%;background:#378ADD;"></div></div>
+      <div class="conf-label">가설 신뢰도 높음 — 보급 속도만 검증 필요</div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#EAF3DE;color:#3B6D11;">2</div>
+        <div class="h-title">'약물 사용자 전용'이 아닌 '다이어트·건강관리' 전반으로 소구해야 시장이 크다</div>
+      </div>
+      <div class="h-body">미국 Circana 데이터 기준, GLP-1 가구가 식음료 매출의 35%를 차지하는 이유는 약물 사용자뿐 아니라 그들의 식습관을 따라가는 '헬스 컨셔스' 층까지 흡수하기 때문. 한국에서 GLP-1 약물 사용자는 아직 소수지만, "GLP-1 방식으로 먹는다"는 식단 트렌드 자체는 훨씬 큰 시장. Danone이 온팩에 'GLP-1'을 직접 명시하지 않고 '근육+소화 건강'으로 포지셔닝한 전략이 한국에 더 적합.</div>
+      <div class="compare-grid">
+        <div class="compare-box"><div class="compare-label" style="color:#185FA5;">미국 전략</div><div class="compare-text">GLP-1 직접 명시 (Conagra), 신규 브랜드 (Nestlé)</div></div>
+        <div class="compare-box"><div class="compare-label" style="color:#3B6D11;">한국 권장 전략</div><div class="compare-text">GLP-1 언급 없이 '고단백·소식·영양밀도' 기능으로 포지셔닝</div></div>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:85%;background:#1D9E75;"></div></div>
+      <div class="conf-label">가설 신뢰도 매우 높음 — 한국 소비자 낙인 감수성 고려</div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#FAEEDA;color:#854F0B;">3</div>
+        <div class="h-title">한국 GLP-1 식품 시장의 1차 수요는 '비만 치료' 아닌 '미용 목적 체중 관리' 여성 20~40대에서 온다</div>
+      </div>
+      <div class="h-body">미국은 당뇨·비만 환자 중심으로 시작했지만 한국은 BMI 정상 범위에서도 체중 관리 목적으로 GLP-1 약물을 사용하는 사례가 두드러짐. 즉 '환자식' 포지션이 아닌 '뷰티·바디 케어'와 인접한 포지션. 이 층은 영양 결핍 우려보다 근육 유지·피부 건강에 민감하고, 구매 채널은 병원·약국 인근보다 올리브영·쿠팡·인스타그램 쇼핑이 더 강함.</div>
+      <div class="h-row">
+        <span class="h-tag tag-kr">핵심 타깃: 20~40대 여성</span>
+        <span class="h-tag tag-kr">소구: 근육유지·피부·에너지</span>
+        <span class="h-tag tag-diff">채널: 올리브영·쿠팡·SNS</span>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:70%;background:#EF9F27;"></div></div>
+      <div class="conf-label">가설 신뢰도 중상 — 처방 데이터로 검증 필요</div>
+    </div>
+  </div>
+
+  <!-- 소비자 행동 -->
+  <div class="tab-content" id="tab-consumer">
+    <div class="section-title">소비자 행동 & 니즈 가설</div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#E6F1FB;color:#185FA5;">4</div>
+        <div class="h-title">한국 GLP-1 사용자의 최대 식품 니즈는 '근육 보존'이 아니라 '메스꺼움 속에서 먹을 수 있는 것'이다</div>
+      </div>
+      <div class="h-body">미국 연구에선 단백질 섭취·근육 유지가 1위 니즈. 그러나 GLP-1 초기 복용자의 현실적 고통은 메스꺼움·구역질·변비로, '먹기 싫은데 영양은 채워야 한다'는 실용적 니즈가 더 크다. 한국에서 이미 유사 사례: 임산부·항암 환자 대상 '먹기 편한 고영양 소용량' 제품군이 성공했음. GLP-1용 컴패니언 식품도 이 포맷(소용량·무향·부드러운 질감·저자극)이 초기 흡인력 높을 것.</div>
+      <div class="compare-grid">
+        <div class="compare-box"><div class="compare-label" style="color:#185FA5;">미국 제품 포지션</div><div class="compare-text">근육 보존, 단백질 극대화 (Oikos Fusion 23g)</div></div>
+        <div class="compare-box"><div class="compare-label" style="color:#3B6D11;">한국 초기 니즈 가설</div><div class="compare-text">소용량·저자극·부드러운 질감의 '먹기 편한 고영양식'</div></div>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:80%;background:#378ADD;"></div></div>
+      <div class="conf-label">가설 신뢰도 높음 — 부작용 경험 서베이로 즉시 검증 가능</div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#FBEAF0;color:#993556;">5</div>
+        <div class="h-title">한국 소비자는 'GLP-1 전용' 라벨을 오히려 꺼린다 — 낙인 회피 심리가 강하다</div>
+      </div>
+      <div class="h-body">미국은 Conagra가 패키지에 'GLP-1 Friendly'를 대문짝만하게 붙이는 게 마케팅 포인트. 한국에서 같은 방식을 쓰면 '비만 치료약 먹는 사람용 음식'이라는 낙인 연상이 강해 일반 소비자로의 확장이 막힌다. 올리브영에서 가장 잘 팔리는 다이어트 식품들은 대부분 '다이어트' 단어 없이 '단백질', '클린', '가볍게' 등으로 포지셔닝. GLP-1을 직접 언급하는 건 커뮤니티·SNS 콘텐츠 레이어에서만, 제품 온팩에는 기능 소구로 대체.</div>
+      <div class="h-row">
+        <span class="h-tag tag-us">미국: 직접 명시 = 차별화</span>
+        <span class="h-tag tag-kr">한국: 직접 명시 = 구매 장벽</span>
+        <span class="h-tag tag-diff">핵심 차이: 낙인 감수성</span>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:85%;background:#D4537E;"></div></div>
+      <div class="conf-label">가설 신뢰도 매우 높음 — 국내 다이어트 제품 마케팅 패턴과 일치</div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#EAF3DE;color:#3B6D11;">6</div>
+        <div class="h-title">GLP-1 복용 중단 후 '리바운드 방지' 니즈가 한국에서 더 강하게 나타난다</div>
+      </div>
+      <div class="h-body">미국 코넬대 연구: 복용 중단 시 식품 구매가 복용 전으로 돌아가고 오히려 캔디·초콜릿 지출이 더 증가. 한국은 GLP-1 약가 부담으로 중단율이 더 높을 것으로 예측됨. '약 끊어도 유지되는 식습관 솔루션'이라는 포지션은 미국보다 한국에서 더 강한 구매 동기가 될 가능성. 습관 형성 기반 구독 모델·밀키트와 궁합 좋음.</div>
+      <div class="conf-bar"><div class="conf-fill" style="width:65%;background:#1D9E75;"></div></div>
+      <div class="conf-label">가설 신뢰도 중간 — 중단율 데이터 확보 필요</div>
+    </div>
+  </div>
+
+  <!-- 제품 기획 -->
+  <div class="tab-content" id="tab-product">
+    <div class="section-title">제품 포맷 & 카테고리 가설</div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#E6F1FB;color:#185FA5;">7</div>
+        <div class="h-title">냉동식품보다 상온 소포장 HMR이 한국 GLP-1 식품의 주력 포맷이 된다</div>
+      </div>
+      <div class="h-body">미국 주력은 냉동식품(Vital Pursuit, Healthy Choice). 한국은 냉동식품보다 CJ·오뚜기 등이 장악한 상온 HMR 시장이 크고, 편의점 도시락·즉석밥 구매 빈도가 훨씬 높음. GLP-1 사용자의 소식 패턴(소용량·고영양·간편)과 한국 편의점 채널의 특성이 맞아떨어짐. 1인 가구 비중이 높은 서울 중심으로 편의점 채널이 핵심 유통 접점.</div>
+      <div class="compare-grid">
+        <div class="compare-box"><div class="compare-label" style="color:#185FA5;">미국 주력 포맷</div><div class="compare-text">냉동 피자·볼·샌드위치 멜트 (Walmart 판매)</div></div>
+        <div class="compare-box"><div class="compare-label" style="color:#3B6D11;">한국 적합 포맷 가설</div><div class="compare-text">상온 소포장 HMR, 편의점 도시락, 즉석국·죽 소용량</div></div>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:80%;background:#378ADD;"></div></div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#FAEEDA;color:#854F0B;">8</div>
+        <div class="h-title">한국 전통 발효식품(김치·된장·낫토)을 'GLP-1 자연 촉진' 소재로 재포지셔닝할 수 있다</div>
+      </div>
+      <div class="h-body">미국에서 주목받는 소구 중 하나가 '천연 GLP-1 분비 촉진' — 식이섬유·발효식품이 체내 GLP-1 분비를 높인다는 연구 기반. 한국은 세계 최고 수준의 발효식품 문화를 보유. 김치·된장·청국장·낫토 등이 이미 장 건강 소재로 인지돼 있어, 추가적인 'GLP-1 촉진' 기능 클레임을 얹으면 기존 K-발효식품의 글로벌 포지션과 국내 기능성 마케팅 모두에 기회. 단, 건강기능식품 클레임 규제 검토 필수.</div>
+      <div class="h-row">
+        <span class="h-tag tag-kr">소재: 김치·된장·청국장</span>
+        <span class="h-tag tag-kr">클레임: 장건강·GLP-1 촉진</span>
+        <span class="h-tag tag-diff">리스크: 식약처 클레임 규제</span>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:60%;background:#EF9F27;"></div></div>
+      <div class="conf-label">가설 신뢰도 중간 — 임상 근거 추가 확보 필요</div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#EAF3DE;color:#3B6D11;">9</div>
+        <div class="h-title">단백질 음료보다 '국·죽·스프' 소용량 포맷이 한국 GLP-1 사용자에게 더 높은 수용성을 가진다</div>
+      </div>
+      <div class="h-body">미국 Oikos Fusion(요거트 드링크)·Boost Shake는 서구 식문화 기반. 한국 GLP-1 사용자 중 메스꺼움을 경험하는 초기 복용층은 따뜻하고 자극 없는 음식을 선호하는 경향(국·죽 수요 급증). 실제 GLP-1 복용 커뮤니티에서 "두부미역국", "닭죽" 등이 자주 언급됨. 콘셉트: 고단백 소용량 죽/국 라인 (단백질 15g+, 200ml 이하, 1회 분량).</div>
+      <div class="h-row">
+        <span class="h-tag tag-kr">포맷: 소용량 국·죽·스프</span>
+        <span class="h-tag tag-kr">온도감: 따뜻한 질감 선호</span>
+        <span class="h-tag tag-diff">한국 고유 기회 영역</span>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:75%;background:#1D9E75;"></div></div>
+    </div>
+  </div>
+
+  <!-- 채널 -->
+  <div class="tab-content" id="tab-channel">
+    <div class="section-title">채널 & 유통 가설</div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#E6F1FB;color:#185FA5;">10</div>
+        <div class="h-title">첫 구매는 '비대면 의료+커머스 연계'에서 일어난다 — 병원 처방 → 직구매 링크가 핵심 퍼널</div>
+      </div>
+      <div class="h-body">한국은 비대면 진료 플랫폼(닥터나우·나만의닥터 등)을 통해 GLP-1 처방이 빠르게 확산 중. 처방 후 '무엇을 먹어야 하나' 검색이 즉시 일어남. 처방 앱 내 식품 추천·구매 연동, 또는 처방 완료 후 문자/카카오톡으로 식품 쿠폰을 제공하는 D2C 모델이 가장 효율적인 첫 구매 퍼널. 미국은 이 채널이 없음 — 한국 고유의 기회.</div>
+      <div class="h-row">
+        <span class="h-tag tag-kr">채널: 비대면 진료 앱 연동</span>
+        <span class="h-tag tag-kr">트리거: 처방 직후 구매 의향</span>
+        <span class="h-tag tag-diff">한국 고유 기회 (미국엔 없음)</span>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:80%;background:#378ADD;"></div></div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#FBEAF0;color:#993556;">11</div>
+        <div class="h-title">올리브영이 GLP-1 식품의 오프라인 킬러 채널이 된다</div>
+      </div>
+      <div class="h-body">미국의 GLP-1 식품 주요 유통: Walmart·Target·Kroger. 한국에서의 유사 포지션은 올리브영. 20~40대 여성 주 고객층 + 건강기능식품·이너뷰티·단백질 바 이미 취급 중 + 헬스·웰니스 트렌드 얼리어답터 집결지. 이미 '체중 관리' 카테고리를 보유하고 있어 GLP-1 연계 식품의 자연스러운 랜딩 채널. CJ온스타일·쿠팡 로켓직구가 2차 채널.</div>
+      <div class="compare-grid">
+        <div class="compare-box"><div class="compare-label" style="color:#185FA5;">미국 주요 채널</div><div class="compare-text">Walmart / Target / Kroger / Amazon</div></div>
+        <div class="compare-box"><div class="compare-label" style="color:#993556;">한국 유사 채널</div><div class="compare-text">올리브영 / 쿠팡 / 비대면진료앱 / 편의점</div></div>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:75%;background:#D4537E;"></div></div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#EAF3DE;color:#3B6D11;">12</div>
+        <div class="h-title">GLP-1 식품의 반복 구매는 구독 모델로 락인되어야 한다 — 약 복용 사이클과 연동</div>
+      </div>
+      <div class="h-body">GLP-1 약물은 주 1회 주사 또는 매일 복용하는 사이클로 반복 처방. 식품도 이 사이클에 맞춰 '4주 패키지', '처방 주기 맞춤 배송' 구독 모델로 연결하면 LTV가 크게 높아짐. 미국에서 아직 정착 안 된 모델 — 한국의 강점인 퀵커머스·정기배송 인프라(쿠팡·마켓컬리)와 결합하면 선점 가능.</div>
+      <div class="h-row">
+        <span class="h-tag tag-kr">모델: 4주 정기구독 패키지</span>
+        <span class="h-tag tag-kr">연동: 약 처방 주기 맞춤</span>
+        <span class="h-tag tag-diff">미국 미개척 → 한국 선점 기회</span>
+      </div>
+      <div class="conf-bar"><div class="conf-fill" style="width:70%;background:#1D9E75;"></div></div>
+    </div>
+  </div>
+
+  <!-- 리스크 -->
+  <div class="tab-content" id="tab-risk">
+    <div class="section-title">검증 필요 가설 & 리스크</div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#FCEBEB;color:#A32D2D;">!</div>
+        <div class="h-title">GLP-1 약물 급여 확대가 지연되면 식품 시장 성장도 지연된다</div>
+      </div>
+      <div class="h-body">핵심 전제: 약물 보급 확대 → 식품 니즈 발생. 한국에서 위고비 급여 미확정, 약가 월 30~50만원 수준 유지 시 사용자 풀이 제한적. 단, '비약물 GLP-1 촉진' 포지션은 이 리스크 헤지 가능.</div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#FCEBEB;color:#A32D2D;">!</div>
+        <div class="h-title">식약처의 GLP-1 관련 기능성 클레임 규제 가능성</div>
+      </div>
+      <div class="h-body">의약품과 연계된 식품 마케팅에 식약처가 개입할 수 있음. '약물 보조' 표현은 의약품 광고 규제 저촉 가능. '고단백', '장 건강', '근육 유지' 등 기능성 표현 중심으로 클레임 설계 필요. 건기식 인증 취득 여부 사전 검토 필수.</div>
+    </div>
+
+    <div class="h-card">
+      <div class="h-header">
+        <div class="h-num" style="background:#FCEBEB;color:#A32D2D;">!</div>
+        <div class="h-title">대형 식품사(CJ·오리온·동원) 진입 시 후발 경쟁 심화</div>
+      </div>
+      <div class="h-body">미국에서 Nestlé·Danone이 대응한 것처럼, 한국도 CJ제일제당·풀무원·동원 등이 빠르게 따라올 가능성 높음. 선점 브랜드가 가져야 할 무기: 커뮤니티 기반 신뢰도, 비대면진료 채널 파트너십, 제품 특허(성분 조합).</div>
+    </div>
+
+    <div style="background:var(--color-background-secondary);border-radius:10px;padding:14px 16px;margin-top:4px;font-size:12px;color:var(--color-text-secondary);line-height:1.7;">
+      <strong style="color:var(--color-text-primary);font-weight:500;">가설 검증 우선순위</strong><br>
+      ① GLP-1 복용자 부작용 경험·식품 니즈 서베이 (가설 4)<br>
+      ② 올리브영·비대면진료 플랫폼 채널 협의 가능 여부 탐색 (가설 10·11)<br>
+      ③ 식약처 클레임 사전 검토 (리스크 2)<br>
+      ④ 국내 GLP-1 처방 데이터·커뮤니티 분석 (가설 3·6)
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
